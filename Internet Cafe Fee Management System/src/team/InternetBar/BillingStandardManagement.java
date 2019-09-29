@@ -29,10 +29,8 @@ public class BillingStandardManagement {
 			preStmt.setFloat(3, standard);
 			preStmt.executeUpdate();
 			System.out.println("添加成功");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn);
+			Tools.release(preStmt);
 		}
 	}
 
@@ -57,10 +55,8 @@ public class BillingStandardManagement {
 				standard = rs.getFloat("standard");
 				System.out.println(id + "   " + begin + "   " + end + "   " + standard);
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 
@@ -82,10 +78,8 @@ public class BillingStandardManagement {
 			preStmt.setInt(1, id);
 			preStmt.executeUpdate();
 			System.out.println("删除成功");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 
@@ -119,10 +113,8 @@ public class BillingStandardManagement {
 			preStmt.setInt(4, id);
 			preStmt.executeUpdate();
 			System.out.println("修改成功");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 }

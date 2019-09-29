@@ -38,10 +38,8 @@ public class QueryStatistics {
 					System.out.println(account + "  " + money + "  " + datetime);
 				}
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 	public void statisticalTotalTurnover() throws SQLException {
@@ -69,10 +67,8 @@ public class QueryStatistics {
 					sum = sum + money;
 			}
 			System.out.println(beginTime + "~" + endTime + "的营业额为" + sum);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 	public void statisticalMonthlyTurnover() throws SQLException {
@@ -119,10 +115,8 @@ public class QueryStatistics {
 					rs.previous();
 				}
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 }

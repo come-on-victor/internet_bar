@@ -35,10 +35,8 @@ public class CardManagement {
 			// preStmt.setString(4, begin);
 			preStmt.executeUpdate();
 			System.out.println("开卡成功");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn);
+			Tools.release(preStmt);
 		}
 	}
 
@@ -65,10 +63,8 @@ public class CardManagement {
 			System.out.println("查询结果如下");
 			System.out.println("卡号                                密码                 余额");
 			System.out.println(account + "  " + password + "   " + balance);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 
@@ -102,10 +98,8 @@ public class CardManagement {
 			}else {
 				System.out.println("输入密码错误");
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 }

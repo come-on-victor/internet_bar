@@ -30,10 +30,8 @@ public class PriviligeManagement {
 			preStmt.setInt(3, level);
 			preStmt.executeUpdate();
 			System.out.println("添加成功");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn);
+			Tools.release(preStmt);
 		}
 	}
 
@@ -54,10 +52,8 @@ public class PriviligeManagement {
 			preStmt.setString(1, account);
 			preStmt.executeUpdate();
 			System.out.println("删除成功");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 
@@ -83,10 +79,8 @@ public class PriviligeManagement {
 			preStmt.setString(2, account);
 			preStmt.executeUpdate();
 			System.out.println("配置成功");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 }

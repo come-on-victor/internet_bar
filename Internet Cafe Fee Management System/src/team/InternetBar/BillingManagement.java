@@ -35,10 +35,8 @@ public class BillingManagement {
 			preStmt.setString(2, account);
 			preStmt.executeUpdate();
 			System.out.println("充值成功，当前余额为：" + curBalance);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 	public void refund() throws SQLException {
@@ -66,10 +64,8 @@ public class BillingManagement {
 			preStmt.setString(2, account);
 			preStmt.executeUpdate();
 			System.out.println("可退" + balance + "元，退费成功");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 }

@@ -23,5 +23,6 @@ public class Main {
 			temp = sc.nextInt();
 		}
 		sc.close();
+		Tools.releaseConn();
 	}
 }

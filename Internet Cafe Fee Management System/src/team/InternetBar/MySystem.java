@@ -147,10 +147,8 @@ public class MySystem {
 			} else {
 				System.out.println("ÊäÈëÃÜÂë´íÎó");
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 }

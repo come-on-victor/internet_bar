@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class AccountingManagement {
-	public void useTheComputer() throws SQLException {
+	public void useTheComputer() throws SQLException  {
 		String account, inputPassword, searchPassword;
 		long curtime;
 		float balance;
@@ -60,10 +60,8 @@ public class AccountingManagement {
 			} else {
 				System.out.println("输入密码错误");
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 
@@ -130,7 +128,7 @@ public class AccountingManagement {
 				System.out.println("账号：" + account + "下机成功");
 				System.out.println("该卡原余额为 " + balance);
 				System.out.println("本次上机时长为" + time + "小时");
-				System.out.println("需扣费" + payment + "元");
+				System.out.println("需扣费" + payment + "元（不足1元则按1元扣费）");
 				pendingPayment = balance - payment;
 				if(pendingPayment >= 0) {
 					sql = "UPDATE cards SET balance=? , begin=? WHERE account=?";
@@ -151,10 +149,8 @@ public class AccountingManagement {
 							+ Math.abs(pendingPayment) + "元");
 				}
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
-			Tools.release(preStmt, conn, rs);
+			Tools.release(preStmt, rs);
 		}
 	}
 }
